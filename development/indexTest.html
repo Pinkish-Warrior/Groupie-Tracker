@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <link rel="stylesheet" href="static/style.css" />
+    <title>Groupie Tracker</title>
+    <style>
+      /* styling social media sidebar */
+      * {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      ul {
+        width: 100px;
+        position: absolute;
+        overflow: hidden;
+      }
+      .leftside {
+        position: absolute;
+        top: 25%;
+      }
+      .leftside li {
+        list-style-type: none;
+        padding: 20px;
+        transform: 0.6s;
+        color: whitesmoke;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .leftside li i {
+        font-size: 40px;
+      }
+
+      .leftside li:hover {
+        padding: 20px 40px;
+      }
+
+      .leftside li:nth-child(1) {
+        background: #3b5998;
+      }
+      .leftside li:nth-child(2) {
+        background: #00aced;
+      }
+      .leftside li:nth-child(3) {
+        background: #dd4b39;
+      }
+      .leftside li:nth-child(4) {
+        background: #007bb6;
+      }
+      .leftside li:nth-child(5) {
+        background: #cb2017;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f1f1; /* Grayish White */
+        color: #333333; /* Dark Gray */
+        margin: 0;
+      }
+
+      header {
+        background-color: #3aa6b9; /* Light Blue */
+        color: #ffd0d0; /* Light Pink */
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .dark-mode-toggle {
+        order: 1;
+      }
+
+      .search-bar {
+        order: 2;
+        flex: 1;
+        margin-left: 20px;
+        padding: 10px;
+        border: 2px solid #3aa6b9; /* Light Blue */
+        border-radius: 20px;
+        font-size: 16px;
+        outline: none;
+      }
+
+      h1 {
+        font-family: "Julius Sans One", sans-serif;
+        font-size: 55px;
+      }
+
+      main {
+        background-color: #ffd0d0; /* Light Pink */
+        color: #ff9eaa; /* Pink */
+        padding: 40px;
+        text-align: center;
+      }
+
+      footer {
+        background-color: #c1ece4; /* Pale Aqua */
+        color: #ff9eaa; /* Pink */
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      /* Dark mode */
+      body.dark-mode {
+        background-color: #3f3b6c; /* Dark Purple */
+        color: #a3c7d6; /* Light Blue */
+      }
+
+      body.dark-mode header {
+        background-color: #3f3b6c; /* Dark Purple */
+        color: #a3c7d6; /* Light Blue */
+      }
+
+      body.dark-mode main {
+        background-color: #624f82; /* Purple */
+        color: #a3c7d6; /* Light Blue */
+      }
+
+      body.dark-mode footer {
+        background-color: #9f73ab; /* Light Purple */
+        color: #a3c7d6; /* Light Blue */
+      }
+
+      /* Dark mode toggle styles */
+      .toggle-slider {
+        width: 50px;
+        height: 25px;
+        background-color: #666666; /* Gray */
+        border-radius: 25px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .toggle-slider::before {
+        content: "";
+        position: absolute;
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        background-color: #a3c7d6; /* Light Blue (Dark Mode Accent) */
+        top: 2px;
+        left: 2px;
+        transition: transform 0.3s ease;
+      }
+
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      input[type="checkbox"]:checked + .toggle-slider::before {
+        transform: translateX(25px);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="dark-mode-toggle">
+        <input type="checkbox" id="darkModeToggle" />
+        <label class="toggle-slider" for="darkModeToggle"></label>
+      </div>
+      <input type="text" class="search-bar" placeholder="Search artists..." />
+    </header>
+    <main>
+      <!-- ALERT -->
+      <!-- social media sidebar position left -->
+      <div class="leftside">
+        <ul>
+          <li><i class="fa fa-facebook"></i></li>
+          <li><i class="fa fa-twitter"></i></li>
+          <li><i class="fa fa-google-plus"></i></li>
+          <li><i class="fa fa-linkedin"></i></li>
+          <li><i class="fa fa-pinterest"></i></li>
+        </ul>
+      </div>
+      <div class="content">
+        <h1>Groupie Tracker</h1>
+        {{ range .Myartists }}
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img
+                src="{{ .Image }}"
+                alt="{{ .Name }}"
+                style="
+                  width: 30dvh;
+                  height: 30dvh;
+                  border-radius: 10px 10px 0 0;
+                "
+              />
+            </div>
+            <div class="flip-card-back">
+              <h2>{{ .Name }}</h2>
+              <p>Year of Activity: {{ .CreationDate }}</p>
+              <p>First Album: {{ .FirstAlbum }}</p>
+              <p>Members: {{ range .Members }}{{ . }}, {{ end }}</p>
+              <br />
+              <br />
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </main>
+    <footer>
+      <p>© 2023 Groupie Tracker</p>
+    </footer>
+    <script>
+      // Dark/Light mode toggle
+      var darkModeToggle = document.getElementById("darkModeToggle");
+      darkModeToggle.addEventListener("change", function () {
+        if (darkModeToggle.checked) {
+          document.body.classList.add("dark-mode");
+        } else {
+          document.body.classList.remove("dark-mode");
+        }
+      });
+    </script>
+  </body>
+</html>

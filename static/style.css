@@ -1,0 +1,289 @@
+/* Light mode styles */
+.light-mode {
+  background-color: lightgray;
+  color: black;
+}
+
+.light-mode .flip-card {
+  border-color: lightgray;
+  background-color: lightgray;
+}
+
+.light-mode .flip-card-back {
+  background-color: whitesmoke;
+  color: black;
+}
+
+.light-mode .flip-card-front {
+  background-color: lightgrey;
+  color: #222222;
+}
+
+.light-mode .errorbutton {
+  background-color: rgba(255, 255, 255, 0.904);
+  color: #222222;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #100c08;
+  color: #ffffff;
+}
+
+.dark-mode .flip-card {
+  border-color: #100c08;
+  background-color: #100c08;
+}
+
+.dark-mode .flip-card-front {
+  background-color: #100c08;
+}
+
+.dark-mode .flip-card-back {
+  background-color: gray;
+}
+
+.dark-mode .errorbutton {
+  background-color: rgb(7, 62, 87);
+  color: white;
+}
+
+/* Common styles for both light and dark mode */
+body {
+  transition: background-color 0.3s ease;
+  font-family: "verdana", "sans-serif";
+  font-size: 16px;
+}
+
+h1 {
+  font-family: "Cherry Bomb One", sans-serif;
+  font-size: 100px;
+}
+
+h3 {
+  margin-bottom: 0;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+}
+
+.info {
+  text-align: center;
+}
+
+#output {
+  font-family: monospace;
+  white-space: pre-wrap;
+  max-width: 100%;
+  padding: 20px;
+  background-color: whitesmoke;
+  color: black;
+}
+
+@media (max-width: 600px) {
+  #output {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: grey;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: purple;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.dark-mode #output {
+  background-color: purple;
+  color: whitesmoke;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  display: inline-block;
+  background-color: transparent;
+  width: 300px;
+  height: 540px;
+  border: 10px solid lightgray;
+  grid-template-rows: 10px;
+  /* perspective: 1000px; */ /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+  text-align: center;
+  transition: transform 2.5s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: lightgray;
+  color: black;
+}
+
+.flip-card-front img {
+  border-radius: 10px 10px 10px 10px;
+}
+
+/* Style the back side */
+.flip-card-back {
+  /* background-color: black; */
+  background-color: black;
+  opacity: 1;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}
+
+.relation {
+  text-align: center;
+}
+
+#errorP {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: center;
+  font-weight: 400;
+  font-size: 50px;
+  letter-spacing: 0px;
+  line-height: 30px;
+}
+
+.errorbutton {
+  size: 5px;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 5px 5px;
+  background-color: rgba(255, 255, 255, 0.904);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.1s ease;
+}
+
+.errorbutton:hover {
+  cursor: pointer;
+  /* background-color:rgb(7, 62, 87);*/
+  background-color: rgb(7, 62, 87);
+  color: white;
+}
+
+/* Dark mode styles for flip card */
+.dark-mode .flip-card {
+  border-color: #100c08; /* Change the border color in dark mode */
+  background-color: #100c08; /* Change the background color in dark mode */
+}
+
+/* Dark mode styles for flip card front and back */
+.dark-mode .flip-card-front {
+  background-color: #100c08; /* Change the background color of front side in dark mode */
+  color: #ffffff; /* Change the text color of front side in dark mode */
+}
+
+.dark-mode .flip-card-back {
+  background-color: gray; /* Change the background color of back side in dark mode */
+  color: #ffffff; /* Change the text color of back side in dark mode */
+}
+
+.iframe {
+  position: absolute;
+  top: 70%;
+  left: 0%;
+}
+
+#errorP {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: center;
+  font-weight: 400;
+  font-size: 50px;
+  letter-spacing: 0px;
+  line-height: 30px;
+}
+.errorbutton {
+  size: 5px;
+  border-radius: 5px;
+  margin-left: 0px;
+  padding: 5px 5px;
+  background-color: rgba(255, 255, 255, 0.904);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.1s ease;
+}
+
+.errorbutton:hover {
+  cursor: pointer;
+  /* background-color:rgb(7, 62, 87);*/
+  background-color: rgb(7, 62, 87);
+  color: white;
+}
