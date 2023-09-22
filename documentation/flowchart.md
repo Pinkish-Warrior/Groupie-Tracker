@@ -35,5 +35,3 @@ flowchart TD
         H[Fetch Relations Data]
     end
 ```
-
-# An application, also known as an app, is a software program created to fulfill particular tasks or deliver specific functionality to end-users. In the case described above, it qualifies as an application. As part of this process, the app retrieves data from an API and displays it on a webpage, enabling users to interact with the data.
