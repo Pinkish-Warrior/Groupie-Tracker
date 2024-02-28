@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groupie Tracker</title>
+    <meta
+      http-equiv="refresh"
+      content="0; url=https://repo.github.io/templates/index.html"
+    />
+    <link rel="stylesheet" href="static/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One"
+    />
+
+    <link rel="icon" href="/static/images/favicon-record.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+      integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY="
+      crossorigin="anonymous"
+    />
+    <style>
+      .fa {
+        padding: 0.3em;
+        font-size: 1.5em;
+        width: 1em;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+      }
+      .fa:hover {
+        opacity: 0.7;
+      }
+      .fa-github {
+        background: black;
+        color: white;
+      }
+      .fa-twitter {
+        background: #55acee;
+        color: white;
+      }
+      .fa-linkedin {
+        background: #007bb5;
+        color: white;
+      }
+      .fa-gitea {
+        background: rgb(4, 107, 4);
+        color: white;
+      }
+      a.no-hover {
+        pointer-events: none;
+      }
+
+      a:link {
+        color: #fff;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #e0218a;
+        background-color: lightgray;
+        padding: 12px 12px;
+      }
+
+      /* Added CSS for table */
+      table.relation {
+        width: 100%;
+      }
+
+      table.relation th,
+      table.relation td {
+        padding: 5px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <!-- <button class="mode-toggle">mode</button> -->
+  <label class="switch">
+    <input type="checkbox" id="darkModeToggle" />
+    <span class="slider round"></span>
+  </label>
+  <body class="light-mode">
+    <!-- CONTENT-->
+    <div style="text-align: center">
+      <h1>groupie tracker</h1>
+    </div>
+    <div class="content">
+      {{ range .Myartists }}
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+              src="{{ .Image }}"
+              alt="{{ .Name }}"
+              style="width: 300px; height: 300px"
+            />
+
+            <h2>{{ .Name }}</h2>
+            <p><b>Created:</b> {{ .CreationDate }}</p>
+            <p><b>First Album Released:</b> {{ .FirstAlbum }}</p>
+            <p><b>Members:</b> {{ range .Members }}{{ . }}, {{ end }}</p>
+          </div>
+          <div class="flip-card-back">
+            <h6>
+              <table class="relation">
+                <p>
+                  <tr>
+                    <th width="50%">Concert Locations:</th>
+                    <th width="50%">Concert Dates:</th>
+                  </tr>
+                </p>
+                {{ range .Relations.Index }}{{range $date, $location :=
+                .DatesLocations}}
+                <tr>
+                  <td>{{$date}} &#160;</td>
+                  <td>{{$location}}</td>
+                  {{end}} {{end}}
+                </tr>
+              </table>
+            </h6>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    <!-- End of the cards -->
+    <div class="info">
+      <h3>
+        <a class="no-hover" href="https://01founders.co/"
+          ><img src="/static/images/01F.png" alt="01logo" width="3%"
+        /></a>
+      </h3>
+      <p style="font-size: x-small">
+        <em>powered by 01Founders</em>
+      </p>
+    </div>
+    <script>
+      // Dark/Light mode toggle
+      var darkModeToggle = document.getElementById("darkModeToggle");
+      darkModeToggle.addEventListener("change", function () {
+        document.body.classList.toggle("dark-mode", darkModeToggle.checked);
+      });
+    </script>
+    <footer
+      style="text-align: center; background-color: gray; border-radius: 10px"
+    >
+      <br />
+      <div>
+        <a href="https://github.com/Pinkish-Warrior" class="fa fa-github"></a>
+        <a href="https://twitter.com/home?lang=en-gb" class="fa fa-twitter"></a>
+        <a
+          href="https://www.linkedin.com/in/tania-rosa-99503b36/"
+          class="fa fa-linkedin"
+        ></a>
+        <a
+          href="https://learn.01founders.co/git/tmachado/groupie-tracker.git"
+          class="fa fa-gitea"
+          aria-hidden="true"
+        ></a>
+      </div>
+      <br />
+    </footer>
+    <script src="script.js" defer></script>
+  </body>
+</html>
