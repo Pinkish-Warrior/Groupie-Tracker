@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Run GO</title>
+  </head>
+  <body>
+    <h1>Click the button to start the Go server</h1>
+    <button onclick="startGoServer()">Run Go</button>
+
+    <script>
+      function startGoServer() {
+        fetch(`/main.go`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to start Go server");
+            }
+            console.log(
+              "Go server started successfully: http://localhost:8084"
+            );
+
+            return response.text(
+              `Go server started successfully: http://localhost:8084`
+            );
+          })
+          .catch((error) => {
+            console.error("Error starting Go server:", error);
+          });
+      }
+    </script>
+  </body>
+</html>
