@@ -20,12 +20,19 @@
               "Go server started successfully: http://localhost:8084"
             );
 
-            return response.text(
-              ` from server: Go server started successfully: http://localhost:8084`
-            );
+            return response.text();
+          })
+          .then((data) => {
+            document.getElementById(
+              "serverStatus"
+            ).innerText = `Go server started successfully: http://localhost:8084`;
           })
           .catch((error) => {
             console.error("Error starting Go server:", error);
+            // Display the error message on the webpage
+            document.getElementById(
+              "serverStatus"
+            ).innerText = `Error starting Go server: ${error.message}`;
           });
       }
     </script>
