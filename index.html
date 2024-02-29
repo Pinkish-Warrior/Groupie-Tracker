@@ -24,11 +24,10 @@
           })
           .then((data) => {
             //create a link to the server
-            const link = (document.createElement(
-              "a"
-            ).link.href = `http://localhost:8084`);
+            const link = document.createElement("a");
+            link.href = `http://localhost:8084`;
             link.textContent = "Go Server started successfully";
-            document.body.appendChild(link);
+            document.getElementById("serverStatus").appendChild(link);
           })
           .catch((error) => {
             console.error("Error starting Go server:", error);
