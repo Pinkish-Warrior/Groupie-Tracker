@@ -4,10 +4,13 @@
 
 # SERVER
 
-To start the server, click [here](http://localhost:8084/start-server).
-To stop the server, click [here](http://localhost:8084/stop-server).
+To start the server, click [here](#start-server).
 
-```html
+To stop the server, click [here](#stop-server).
+
+# My Project
+
+````html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,39 +20,51 @@ To stop the server, click [here](http://localhost:8084/stop-server).
   </head>
   <body>
     <h1>Control Server</h1>
-    <button id="startButton">Start Server</button>
-    <button id="stopButton">Stop Server</button>
+    <button id="startButton" onclick="startServer()">Start Server</button>
+    <button id="stopButton" onclick="stopServer()">Stop Server</button>
 
-    <script src="script.js"></script>
+    <script>
+      function startServer() {
+        fetch("/start-server", { method: "POST" })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to start server");
+            }
+            console.log("Server started successfully");
+          })
+          .catch((error) => {
+            console.error("Error starting server:", error);
+          });
+      }
+
+      function stopServer() {
+        fetch("/stop-server", { method: "POST" })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to stop server");
+            }
+            console.log("Server stopped successfully");
+          })
+          .catch((error) => {
+            console.error("Error stopping server:", error);
+          });
+      }
+    </script>
   </body>
 </html>
-```
 
-# Groupie-Tracker 🎬
+# Groupie-Tracker 🎬 ## Introduction 🤝 Create a user-friendly website
+displaying artist data from an API, focusing on data visualization and
+client-server interactions. Backend in Go, with a focus on stability and best
+practices ## Requirements 📝 👉 The backend must be written in Go. <br />
+👉 The site and server cannot crash at any time.<br />
+👉 All pages must work correctly and you must take care of any errors.<br />
+👉 The code must respect the good practices.<br />
 
-## Introduction 🤝
-
-Create a user-friendly website displaying artist data from an API, focusing on data visualization and client-server interactions. Backend in Go, with a focus on stability and best practices
-
-## Requirements 📝
-
-👉 The backend must be written in Go. <br>
-👉 The site and server cannot crash at any time.<br>
-👉 All pages must work correctly and you must take care of any errors.<br>
-👉 The code must respect the good practices.<br>
-
-## Deliverable ⚡️
-
-- [x] Manipulation and storage of data..
-- [x] JSON files and format.
-- [x] Event creation and display.
-- [x] Client Server
-
-## Resources 📚
-
-```bash
-cd documentation/resources.md
-```
+## Deliverable ⚡️ - [x] Manipulation and storage of data.. - [x] JSON files and
+format. - [x] Event creation and display. - [x] Client Server ## Resources 📚
+```bash cd documentation/resources.md
+````
 
 ## How To Run 👣
 
