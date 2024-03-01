@@ -2,6 +2,29 @@
 [Go Run](http://localhost:8084/start-server)
 [Go Stop](http://localhost:8084/stop-server)
 
+# SERVER
+
+To start the server, click [here](http://localhost:8084/start-server).
+To stop the server, click [here](http://localhost:8084/stop-server).
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Server</title>
+  </head>
+  <body>
+    <h1>Control Server</h1>
+    <button id="startButton">Start Server</button>
+    <button id="stopButton">Stop Server</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
 # Groupie-Tracker 🎬
 
 ## Introduction 🤝
