@@ -10,7 +10,7 @@ To stop the server, click [here](#stop-server).
 
 # My Project
 
-````html
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,8 +52,10 @@ To stop the server, click [here](#stop-server).
     </script>
   </body>
 </html>
+```
 
 # Groupie-Tracker 🎬 ## Introduction 🤝 Create a user-friendly website
+
 displaying artist data from an API, focusing on data visualization and
 client-server interactions. Backend in Go, with a focus on stability and best
 practices ## Requirements 📝 👉 The backend must be written in Go. <br />
@@ -62,9 +64,12 @@ practices ## Requirements 📝 👉 The backend must be written in Go. <br />
 👉 The code must respect the good practices.<br />
 
 ## Deliverable ⚡️ - [x] Manipulation and storage of data.. - [x] JSON files and
+
 format. - [x] Event creation and display. - [x] Client Server ## Resources 📚
+
 ```bash cd documentation/resources.md
-````
+
+```
 
 ## How To Run 👣
 
