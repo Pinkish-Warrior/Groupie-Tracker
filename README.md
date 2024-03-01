@@ -1,5 +1,5 @@
 <a href="https://www.buymeacoffee.com/PinkishWarrior" target="_blank"><img align="right" src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174">
-[click here](./templates/index.html)
+[click here](http://localhost:3000/)
 
 # Groupie-Tracker 🎬
 
