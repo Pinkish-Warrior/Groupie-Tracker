@@ -1,6 +1,6 @@
 <a href="https://www.buymeacoffee.com/PinkishWarrior" target="_blank"><img align="right" src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174">
-[Go Run](http://localhost:8084//start-server)
-[Go Stop](http://localhost:8084//start-server)
+[Go Run](http://localhost:8084/start-server)
+[Go Stop](http://localhost:8084/stop-server)
 
 # Groupie-Tracker 🎬
 
