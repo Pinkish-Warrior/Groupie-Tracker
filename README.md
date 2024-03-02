@@ -1,81 +1,44 @@
-<a href="https://www.buymeacoffee.com/PinkishWarrior" target="_blank"><img align="right" src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174">
-[Go Run](http://localhost:8084/start-server)
-[Go Stop](http://localhost:8084/stop-server)
+<a href="https://www.buymeacoffee.com/PinkishWarrior" target="_blank"><img align="right" src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
-# SERVER
+# Groupie-Tracker 🎬
 
-To start the server, click [here](#start-server).
+## Introduction 🤝
 
-To stop the server, click [here](#stop-server).
-
-# My Project
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Control Server</title>
-  </head>
-  <body>
-    <h1>Control Server</h1>
-    <button id="startButton" onclick="startServer()">Start Server</button>
-    <button id="stopButton" onclick="stopServer()">Stop Server</button>
-
-    <script>
-      function startServer() {
-        fetch("/start-server", { method: "POST" })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Failed to start server");
-            }
-            console.log("Server started successfully");
-          })
-          .catch((error) => {
-            console.error("Error starting server:", error);
-          });
-      }
-
-      function stopServer() {
-        fetch("/stop-server", { method: "POST" })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Failed to stop server");
-            }
-            console.log("Server stopped successfully");
-          })
-          .catch((error) => {
-            console.error("Error stopping server:", error);
-          });
-      }
-    </script>
-  </body>
-</html>
-```
-
-# Groupie-Tracker 🎬 ## Introduction 🤝 Create a user-friendly website
-
-displaying artist data from an API, focusing on data visualization and
+Create a user-friendly website displaying artist data from an API, focusing on data visualization and
 client-server interactions. Backend in Go, with a focus on stability and best
-practices ## Requirements 📝 👉 The backend must be written in Go. <br />
+practices
+
+## Requirements 📝
+
+👉 The backend must be written in Go. <br />
 👉 The site and server cannot crash at any time.<br />
 👉 All pages must work correctly and you must take care of any errors.<br />
 👉 The code must respect the good practices.<br />
 
-## Deliverable ⚡️ - [x] Manipulation and storage of data.. - [x] JSON files and
+## Deliverable ⚡️
 
-format. - [x] Event creation and display. - [x] Client Server ## Resources 📚
+- [x] Manipulation and storage of data..
+- [x] JSON files and format.
+- [x] Event creation and display.
+- [x] Client Server
 
-```bash cd documentation/resources.md
+## Resources 📚
 
+```
+bash cd documentation/resources.md
 ```
 
 ## How To Run 👣
 
+To run the project, you need to have Go installed on your machine. You can find more information here: https://golang.org/doc/install
+
 ```
 go run .
 ```
+
+or click in the run button bellow for a full web app experience.
+
+[![Run Project](https://img.shields.io/badge/Run-Project-blue)](https://groupie-tracker-1.onrender.com)
 
 ## Conclusion ✅
 
